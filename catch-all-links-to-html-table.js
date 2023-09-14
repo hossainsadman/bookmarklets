@@ -1,0 +1,10 @@
+// finds all links on the current page and opens a new page with found links + related metadata formatted in a html table
+
+// bookmarklet one liner
+javascript:(function()%7Bvar x %3D document.querySelectorAll("a")%3B%0Avar myarray %3D %5B%5D%0Afor (var i%3D0%3B i<x.length%3B i%2B%2B)%7B%0Avar nametext %3D x%5Bi%5D.textContent%3B%0Avar cleantext %3D nametext.replace(%2F%5Cs%2B%2Fg%2C ' ').trim()%3B%0Avar cleanlink %3D x%5Bi%5D.href%3B%0Amyarray.push(%5Bcleantext%2Ccleanlink%5D)%3B%0A%7D%3B%0Afunction make_table() %7B%0A    var table %3D '<table><thead><th>Name<%2Fth><th>Links<%2Fth><%2Fthead><tbody>'%3B%0A   for (var i%3D0%3B i<myarray.length%3B i%2B%2B) %7B%0A            table %2B%3D '<tr><td>'%2B myarray%5Bi%5D%5B0%5D %2B '<%2Ftd><td>'%2Bmyarray%5Bi%5D%5B1%5D%2B'<%2Ftd><%2Ftr>'%3B%0A    %7D%3B%0A %0A    var w %3D window.open("")%3B%0Aw.document.write(table)%3B %0A%7D%0Amake_table()%7D)()%3B
+
+// function
+javascript: (function() % 7 Bvar x % 3 D document.querySelectorAll("a") % 3 B % 0 Avar myarray % 3 D % 5 B % 5 D % 0 Afor(var i % 3 D0 % 3 B i < x.length % 3 B i % 2 B % 2 B) % 7 B % 0 Avar nametext % 3 D x % 5 Bi % 5 D.textContent % 3 B % 0 Avar cleantext % 3 D nametext.replace( % 2 F % 5 Cs % 2 B % 2 Fg % 2 C ' ').trim() % 3 B % 0 Avar cleanlink % 3 D x % 5 Bi % 5 D.href % 3 B % 0 Amyarray.push( % 5 Bcleantext % 2 Ccleanlink % 5 D) % 3 B % 0 A % 7 D % 3 B % 0 Afunction make_table() % 7 B % 0 A
+    var table % 3 D '<table><thead><th>Name<%2Fth><th>Links<%2Fth><%2Fthead><tbody>' % 3 B % 0 A
+    for (var i % 3 D0 % 3 B i < myarray.length % 3 B i % 2 B % 2 B) % 7 B % 0 A table % 2 B % 3 D '<tr><td>' % 2 B myarray % 5 Bi % 5 D % 5 B0 % 5 D % 2 B '<%2Ftd><td>' % 2 Bmyarray % 5 Bi % 5 D % 5 B1 % 5 D % 2 B '<%2Ftd><%2Ftr>' % 3 B % 0 A % 7 D % 3 B % 0 A % 0 A
+    var w % 3 D window.open("") % 3 B % 0 Aw.document.write(table) % 3 B % 0 A % 7 D % 0 Amake_table() % 7 D)() % 3 B
